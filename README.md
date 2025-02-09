@@ -81,10 +81,6 @@ testline/
 ![Screenshot 6](static/images/6.png)
 ![Screenshot 7](static/images/7.png)
 
-## Demo Video
-
-[![Demo Video](static/images/1.png)](static/video/video.mp4)
-
 ## Contributing
 
 Contributions are welcome! To contribute:
