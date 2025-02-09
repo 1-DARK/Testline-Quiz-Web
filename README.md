@@ -83,7 +83,7 @@ testline/
 
 ## Demo Video
 
-[![Demo Video](static/images/1.png)](static/video/video)
+[![Demo Video](static/images/1.png)](static/video/video.mp4)
 
 ## Contributing
 
