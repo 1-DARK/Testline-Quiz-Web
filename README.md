@@ -73,22 +73,13 @@ testline/
 
 ## Screenshots
 
-Below are placeholders for 7 images that capture various aspects of the project. Replace the `path/to/imageX.png` with your actual image file paths.
-
-1. **Screenshot 1:**
-   ![Screenshot 1](static/images/1.png)
-2. **Screenshot 2:**
-   ![Screenshot 2](static/images/2.png)
-3. **Screenshot 3:**
-   ![Screenshot 3](static/images/3.png)
-4. **Screenshot 4:**
-   ![Screenshot 4](static/images/4.png)
-5. **Screenshot 5:**
-   ![Screenshot 5](static/images/5.png)
-6. **Screenshot 6:**
-   ![Screenshot 6](static/images/6.png)
-7. **Screenshot 7:**
-   ![Screenshot 7](static/images/7.png)
+![Screenshot 1](static/images/1.png)
+![Screenshot 2](static/images/2.png)
+![Screenshot 3](static/images/3.png)
+![Screenshot 4](static/images/4.png)
+![Screenshot 5](static/images/5.png)
+![Screenshot 6](static/images/6.png)
+![Screenshot 7](static/images/7.png)
 
 ## Demo Video
 
@@ -107,10 +98,3 @@ Contributions are welcome! To contribute:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for further details.
-
-## Acknowledgements
-
-- Thank you to all the contributors and the open source community.
-- Special thanks to the developers behind Tailwind CSS and Node.js for their amazing tools and frameworks.
-
----
