@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="shortcut icon" href="AZA.png" type="image/x-icon">
+    <link rel="stylesheet" href="/src/output.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: white;
+            background-color: black;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .question h3 {
+            margin-top: 0;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        .option {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .correct {
+            font-weight: bold;
+            border-color: green;
+            background-color: rgb(56, 123, 56);
+        }
+        .incorrect {
+            font-weight: bold;
+            border-color: red;
+            background-color: rgb(141, 72, 72);
+        }
+        .detailed-solution {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #score-container {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        background: linear-gradient(45deg, #2196F3, #4CAF50);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        animation: pulse 2s infinite;
+    }
+    
+    #score {
+        color: white;
+        position: relative;
+        z-index: 2;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    /* Water wave animation */
+    #score-container::before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        background: rgba(255,255,255,0.1);
+        border-radius: 40%;
+        animation: wave 5s infinite linear;
+    }
+    
+    #score-container::after {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        background: rgba(255,255,255,0.1);
+        border-radius: 35%;
+        animation: wave 5s infinite linear;
+        animation-delay: 0.5s;
+    }
+    
+    @keyframes wave {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.4);
+        }
+        70% {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 15px rgba(33, 150, 243, 0);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(33, 150, 243, 0);
+        }
+    }
+    </style>
+</head>
+<body>
+    <h1 class="text-5xl mb-7">Genetics and Evolution Quiz</h1>
+    <div id="quiz-container"></div>
+    <div id="score-container" class="text-center">
+        <strong>Score: </strong><span id="score">0</span>
+    </div>
+
+    <script>
+        // JSON data with questions array filled
+        const quizData = {
+            "questions": [
+    {
+        "id": 3342,
+        "description": "If the base sequence in DNA is 5' AAAT 3' then the base sequence in mRNA is :",
+        "options": [
+            {"id": 13379, "description": "5'UUUU3'", "is_correct": false},
+            {"id": 13380, "description": "3'UUUU5'", "is_correct": false},
+            {"id": 13381, "description": "5'AAAU3'", "is_correct": true},
+            {"id": 13382, "description": "3'AAAU5'", "is_correct": false}
+        ],
+        "detailed_solution": "To determine the mRNA sequence from the given DNA sequence, we follow the principles of transcription, where RNA is synthesized complementary to the DNA template strand. Here's the step-by-step process: Given DNA Sequence: 5' AAAT 3'. Transcription Rules: Complementary Base Pairing: Adenine (A) in DNA pairs with Uracil (U) in RNA. Thymine (T) in DNA pairs with Adenine (A) in RNA. Cytosine (C) pairs with Guanine (G), and vice versa. RNA is synthesized in the 5' to 3' direction, complementary to the 3' to 5' DNA template strand. DNA Template Strand: 3' TTTA 5'. mRNA Sequence: 5' AAAU 3'. Final Answer: The base sequence in mRNA is: 5' AAAU 3'."
+    },
+    {
+        "id": 3315,
+        "description": "Avery, MacLeod and Mc Carty used the S(virulent) and R (avirulent) strains of streptococcus pneumoniae. They isolated and purified protein, DNA, RNA from the bacteria and treated them with related enzymes. They concluded that :",
+        "options": [
+            {"id": 13271, "description": "DNA was transforming agent", "is_correct": true},
+            {"id": 13272, "description": "RNA was transforming agent", "is_correct": false},
+            {"id": 13273, "description": "Protein was transforming agent", "is_correct": false},
+            {"id": 13274, "description": "All are correct", "is_correct": false}
+        ],
+        "detailed_solution": "Explanation: Transformation is a process by which genetic material is transferred from one organism to another. In the Griffith's experiment, heat-killed S (virulent) strain of Streptococcus pneumoniae transformed the R (avirulent) strain into the S strain. Avery, MacLeod, and McCarty conducted experiments to identify the transforming agent. They treated the heated S strain bacteria with enzymes that break down proteins, DNA, and RNA. Only the enzyme that broke down DNA inactivated the transforming agent. This experiment demonstrated that DNA was the transforming agent, responsible for transferring the genetic information that allowed the R strain to become virulent. Additional Context: The discovery of DNA as the genetic material was a significant milestone in molecular biology. The discovery of transformation paved the way for the understanding of gene function and regulation. Relevance to NEET Exam: This concept of transformation and the role of DNA as the genetic material is a fundamental topic in molecular biology and is frequently tested in the NEET exam. Understanding the experiment conducted by Avery, MacLeod, and McCarty is crucial for grasping the concept of genetic inheritance."
+    },
+    {
+        "id": 3381,
+        "description": "Identify the characteristic which is not applicable to the genetic code:",
+        "options": [
+            {"id": 13535, "description": "Non-Polar", "is_correct": true},
+            {"id": 13536, "description": "Non-Overlapping", "is_correct": false},
+            {"id": 13537, "description": "Commaless", "is_correct": false},
+            {"id": 13538, "description": "Universal", "is_correct": false}
+        ],
+        "detailed_solution": "The genetic code is the set of rules that determines how information from a gene is translated into a protein. It consists of three-nucleotide sequences called codons, each of which codes for a specific amino acid. There are 20 common amino acids, and each amino acid is coded for by at least one codon. The genetic code is characterized by the following properties: . It is .specific, meaning that each codon codes for a specific amino acid. . It is ..universal, meaning that the same codon codes for the same amino acid in all organisms. . It is ..non-overlapping, meaning that each nucleotide is used only once in a codon. . It is ..degenerate, meaning that most amino acids are coded for by more than one codon. ..Non-polarity. is not a characteristic of the genetic code. Non-polarity refers to the chemical nature of certain amino acids, not to the genetic code itself. Polar amino acids have charged side chains, while non-polar amino acids have uncharged side chains. The polarity of an amino acid affects its solubility and its interactions with other molecules. .Additional context:. The genetic code was first deciphered by Marshall Nirenberg and Har Gobind Khorana in the 1960s. They used a technique called cell-free protein synthesis to determine which codons coded for which amino acids. The genetic code has since been found to be universal in all living organisms, with a few minor exceptions."
+    },
+    {
+        "id": 3295,
+        "description": "Ribose is differentiable from deoxyribose in having :",
+        "options": [
+            {"id": 13191, "description": "Two extra oxygen", "is_correct": false},
+            {"id": 13192, "description": "No oxygen", "is_correct": false},
+            {"id": 13193, "description": "Hydroxyl group at 2nd carbon", "is_correct": true},
+            {"id": 13194, "description": "One extra hydrogen", "is_correct": false}
+        ],
+        "detailed_solution": "Detailed Explanation: Ribose and deoxyribose are both pentose sugars (having five carbon atoms) that form the backbone of nucleic acids (DNA and RNA). The main difference between them lies in the presence or absence of a hydroxyl group (-OH) at the second carbon atom. . Ribose: Has a hydroxyl group (-OH) attached to the second carbon atom (2'-OH). . Deoxyribose: Lacks the hydroxyl group at the second carbon atom and instead has a hydrogen atom (-H) attached to it. Why is the answer correct? The question asks for the difference between ribose and deoxyribose. The answer, \"Hydroxyl group at 2nd carbon,\" correctly identifies that the presence of a hydroxyl group at the second carbon atom is what distinguishes ribose from deoxyribose. Additional Context: . Ribose is found in RNA (ribonucleic acid). . Deoxyribose is found in DNA (deoxyribonucleic acid). . The absence of the hydroxyl group at the second carbon atom in deoxyribose makes DNA more stable and less prone to hydrolysis (chemical breakdown). . The hydroxyl group in ribose allows for the formation of secondary structures, such as hydrogen bonding and base pairing, which are crucial for the function of RNA."
+    },
+    {
+        "id": 3356,
+        "description": "A DNA strand is directly involved in the synthesis of all the following except:",
+        "options": [
+            {"id": 13435, "description": "Another DNA", "is_correct": false},
+            {"id": 13436, "description": "t-RNA & m-RNA", "is_correct": false},
+            {"id": 13437, "description": "r-RNA", "is_correct": false},
+            {"id": 13438, "description": "Protein", "is_correct": true}
+        ],
+        "detailed_solution": "Explanation: DNA stands for deoxyribonucleic acid. It is a molecule that contains the instructions for an organism's development and characteristics. DNA is mainly involved in the synthesis of RNA (ribonucleic acid) through a process called transcription. RNA is then involved in the synthesis of proteins through a process called translation. Therefore, DNA is indirectly involved in the synthesis of proteins. Proteins are synthesized on ribosomes, which are structures in the cell that read the genetic code in RNA and assemble the correct sequence of amino acids. Additional Context: DNA is a double-stranded molecule that forms a helix shape. Each strand of DNA is made up of a series of nucleotides, which are composed of a deoxyribose sugar, a phosphate group, and a nitrogenous base. The four nitrogenous bases in DNA are adenine (A), thymine (T), cytosine (C), and guanine (G). The sequence of these bases along the DNA strand determines the genetic code for an organism. DNA is found in the nucleus of cells. When a cell divides, the DNA is replicated so that each new cell has its own copy of the genetic code."
+    },
+    {
+        "id": 3343,
+        "description": "The genes are responsible for growth and differentiation in an organism through regulation of :",
+        "options": [
+            {"id": 13383, "description": "Translocation", "is_correct": false},
+            {"id": 13384, "description": "Transformation", "is_correct": false},
+            {"id": 13385, "description": "Transduction and translation", "is_correct": false},
+            {"id": 13386, "description": "Translation and transcription", "is_correct": true}
+        ],
+        "detailed_solution": "The answer is correct because: . Genes: Genes are segments of DNA that code for specific proteins. . Growth and differentiation: Growth is the increase in size of an organism, while differentiation is the process by which cells become specialized to perform specific functions. . Translation and transcription: Translation is the process by which the genetic code in mRNA is decoded to produce a protein. Transcription is the process by which DNA is copied into mRNA. Additional context: . Proteins: Proteins are the building blocks of cells and are responsible for a wide variety of functions, including growth and differentiation. . mRNA: mRNA is a type of RNA that carries the genetic code from the nucleus to the ribosomes, where translation takes place. Therefore, the genes are responsible for growth and differentiation in an organism through regulation of translation and transcription."
+    },
+    {
+        "id": 3316,
+        "description": "Genetic information is carried out by long chain molecule made up of :",
+        "options": [
+            {"id": 13275, "description": "Amino acids", "is_correct": false},
+            {"id": 13276, "description": "Enzymes", "is_correct": false},
+            {"id": 13277, "description": "Nucleotides", "is_correct": true},
+            {"id": 13278, "description": "Histone proteins", "is_correct": false}
+        ],
+        "detailed_solution": "Answer: Nucleotides Explanation: Genetic information is carried out by DNA (deoxyribonucleic acid) and RNA (ribonucleic acid). These are long chain molecules made up of repeating units called nucleotides. Each nucleotide consists of a nitrogenous base, a pentose sugar, and a phosphate group. The nitrogenous bases are adenine (A), thymine (T), cytosine (C), and guanine (G) in DNA, and adenine (A), uracil (U), cytosine (C), and guanine (G) in RNA. The sequence of nucleotides in DNA and RNA carries the genetic code, which determines the traits of an organism. Additional Context: . DNA is found in the nucleus of cells, while RNA is found in the nucleus, cytoplasm, and ribosomes. . DNA has a double-helix structure, while RNA has a single-stranded structure. . DNA is more stable than RNA and serves as the permanent repository of genetic information. . RNA is involved in protein synthesis and other cellular processes. . The genetic code is universal, meaning that the same sequence of nucleotides codes for the same amino acids in all living organisms."
+    },
+    {
+        "id": 3376,
+        "description": "Anticodons are found in:",
+        "options": [
+            {"id": 13515, "description": "mRNA", "is_correct": false},
+            {"id": 13516, "description": "tRNA", "is_correct": true},
+            {"id": 13517, "description": "rRNA", "is_correct": false},
+            {"id": 13518, "description": "In all", "is_correct": false}
+        ],
+        "detailed_solution": "Explanation: Anticodons are complementary triplets of RNA nucleotides found in ..transfer RNA (tRNA).. molecules. Each tRNA molecule carries a specific anticodon that is complementary to the codon (a sequence of three nucleotides) on a messenger RNA (mRNA) molecule. During protein synthesis, the anticodon on the tRNA molecule binds to the complementary codon on the mRNA molecule, bringing the correct amino acid to the ribosome for incorporation into the growing polypeptide chain. Therefore, the correct answer to the question \"Anticodons are found in:\" is ..tRNA... Additional Context: . Codon: A sequence of three nucleotides on an mRNA molecule that codes for a specific amino acid or a stop signal. . Ribosome: A complex structure in the cell that assembles proteins based on the sequence of codons on mRNA molecules. . Protein Synthesis: The process of assembling proteins by joining amino acids together in a specific sequence."
+    },
+    {
+        "id": 3302,
+        "description": "Which of the following element is not found in nitrogenous base :",
+        "options": [
+            {"id": 13219, "description": "Nitrogen", "is_correct": false},
+            {"id": 13220, "description": "Hydrogen", "is_correct": false},
+            {"id": 13221, "description": "Carbon", "is_correct": false},
+            {"id": 13222, "description": "Phosphorus", "is_correct": true}
+        ],
+        "detailed_solution": "Nitrogenous bases are organic molecules that contain nitrogen and are a fundamental component of nucleic acids (DNA and RNA). The four nitrogenous bases found in DNA are adenine (A), thymine (T), cytosine (C), and guanine (G). In RNA, thymine is replaced by uracil (U). Phosphorus is not found in nitrogenous bases. Instead, it is found in the sugar-phosphate backbone of nucleic acids. The sugar-phosphate backbone forms the structural framework of nucleic acids and plays a crucial role in maintaining the stability and integrity of the DNA or RNA molecule. Additional context: . Nitrogenous bases pair up with each other through hydrogen bonding to form base pairs. In DNA, A pairs with T, and C pairs with G. In RNA, A pairs with U, and C pairs with G. . The sequence of nitrogenous bases in DNA and RNA determines the genetic code and provides instructions for protein synthesis. . Phosphorus is also an important component of many other biological molecules, such as phospholipids (components of cell membranes) and ATP (the energy currency of cells)."
+    },
+    {
+        "id": 3378,
+        "description": "Transfer of genetic information from a polymer of nucleotides to a polymer of amino acids is:",
+        "options": [
+            {"id": 13523, "description": "Replication", "is_correct": false},
+            {"id": 13524, "description": "Transcription", "is_correct": false},
+            {"id": 13525, "description": "Translation", "is_correct": true},
+            {"id": 13526, "description": "Reverse transcription", "is_correct": false}
+        ],
+        "detailed_solution": "Answer: Translation Explanation: The process of transferring genetic information from a polymer of nucleotides (DNA or RNA) to a polymer of amino acids (protein) is known as ..translation... This process is carried out by the ribosomes in the cytoplasm of cells. The steps of translation are as follows: 1. ..Initiation:.. The ribosome binds to the messenger RNA (mRNA) molecule at the start codon (AUG). A specific transfer RNA (tRNA) molecule carrying the amino acid methionine (Met) binds to the start codon. 2. ..Elongation:.. As the ribosome moves along the mRNA, different tRNA molecules carrying specific amino acids bind to their complementary codons on the mRNA. The amino acids are then linked together by peptide bonds to form a polypeptide chain. 3. ..Termination:.. Translation is terminated when a stop codon (UAA, UAG, or UGA) is encountered on the mRNA. The polypeptide chain is released from the ribosome and folding begins to form the functional protein. Therefore, translation is the process that converts the genetic information in nucleotides into the amino acid sequence of a protein."
+    }
+]
+            
+              
+            
+        };
+
+        let score = 0;
+
+        // Function to generate HTML for each question
+        function generateQuestionHTML(question) {
+            let optionsHTML = question.options.map(option => {
+                return `
+                    <label class="option">
+                        <input type="radio" name="question-${question.id}" data-is-correct="${option.is_correct}" data-question-id="${question.id}">
+                        ${option.description}
+                    </label>
+                `;
+            }).join('');
+
+            return `
+                <div class="question" data-question-id="${question.id}">
+                    <h3>${question.description}</h3>
+                    <div class="options">${optionsHTML}</div>
+                    <div class="detailed-solution" style="display: none;">
+                        <strong>Detailed Solution:</strong> ${question.detailed_solution}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to handle option click
+        function handleOptionClick(event) {
+            const radio = event.target;
+            const isCorrect = radio.getAttribute('data-is-correct') === 'true';
+            const questionId = radio.getAttribute('data-question-id');
+            const questionDiv = document.querySelector(`.question[data-question-id="${questionId}"]`);
+            const detailedSolutionDiv = questionDiv.querySelector('.detailed-solution');
+
+            if (isCorrect) {
+                score += 4;
+                document.getElementById('score').textContent = score;
+                radio.parentElement.classList.add('correct');
+                detailedSolutionDiv.style.display = 'block';
+            } else {
+                score -= 1;
+                document.getElementById('score').textContent = score;
+                radio.parentElement.classList.add('incorrect');
+                const correctOption = questionDiv.querySelector('input[data-is-correct="true"]').parentElement;
+                correctOption.classList.add('correct');
+                detailedSolutionDiv.style.display = 'block';
+            }
+
+            // Disable further clicks on options for this question
+            const options = questionDiv.querySelectorAll('input[type="radio"]');
+            options.forEach(opt => opt.disabled = true);
+        }
+        // Function to check if all questions are answered and show countdown animation
+        let countdownDiv;
+        
+        function showCountdownAnimation() {
+            countdownDiv = document.createElement('div');
+            countdownDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 72px;
+                font-weight: bold;
+                z-index: 1000;
+                transition: all 0.5s;
+            `;
+            document.body.appendChild(countdownDiv);
+
+            const colors = ['#4ECDC4', '#4ECDC4', '#45B7D1'];
+  
+
+            const bgColors = ['rgba(78, 207, 198, 0.3)', 'rgba(78, 205, 196, 0.3)', 'rgba(69, 183, 209, 0.3)'];
+            let count = 3;
+            const countdownInterval = setInterval(() => {
+                if (count > 0) {
+                    countdownDiv.textContent = count;
+                    countdownDiv.style.color = colors[count-1];
+                    document.body.style.backgroundColor = bgColors[count-1];
+                    count--;
+                } else {
+                    clearInterval(countdownInterval);
+                    document.body.removeChild(countdownDiv);
+                    document.body.style.backgroundColor = '';
+                }
+            }, 1000);
+        }
+
+        // Show countdown animation when page loads
+        window.addEventListener('load', showCountdownAnimation);
+        function areAllQuestionsAnswered() {
+            const questions = document.querySelectorAll('.question');
+            for (const question of questions) {
+                const radios = question.querySelectorAll('input[type="radio"]');
+                let isAnswered = false;
+                for (const radio of radios) {
+                    if (radio.checked) {
+                        isAnswered = true;
+                        break;
+                    }
+                }
+                if (!isAnswered) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Hide score container initially
+        document.getElementById('score-container').style.display = 'none';
+
+        // Function to update score display
+        function updateScore() {
+            if (areAllQuestionsAnswered()) {
+                document.getElementById('score-container').style.display = 'flex';
+            } else {
+                document.getElementById('score-container').style.display = 'none';
+            }
+        }
+
+        // Modify handleOptionClick to call updateScore
+        const originalHandleOptionClick = handleOptionClick;
+        handleOptionClick = function(event) {
+            originalHandleOptionClick(event);
+            updateScore();
+        };
+
+        // Function to render the quiz
+        function renderQuiz() {
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = quizData.questions.map(generateQuestionHTML).join('');
+
+            // Add event listeners to radio buttons
+            const radios = document.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => {
+                radio.addEventListener('change', handleOptionClick);
+            });
+        }
+
+        // Render the quiz when the page loads
+        window.onload = renderQuiz;
+    </script>
+</body>
+</html>

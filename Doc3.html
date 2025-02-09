@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+     <link rel="shortcut icon" href="AZA.png" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .contact-info {
+            padding: 30px;
+        }
+
+        .contact-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .contact-details {
+            margin-bottom: 20px;
+        }
+
+        .contact-details h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        .contact-details p {
+            margin-bottom: 5px;
+        }
+
+        .contact-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .contact-images img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-images {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="contact-section">
+            <div class="contact-info">
+                <h1>Contact Us</h1>
+                <div class="contact-details">
+                    <h2>Company Informations</h2>
+                 <p>Testline is redefining how students prepare for competitive exams like REET, NEET, and State PSCs. With daily test targets, smart revision, and gamified routines, we make learning interactive, interesting, and impactful. Join Testline to build habits, retain concepts, and</p>
+                </div>
+                <div class="contact-details">
+                    <h2>Customer Support</h2>
+                    <p> 9611909523</p>
+                    <p>Email:help@testline.in</p>
+                </div>
+                <div class="contact-details">
+                    <h2>Company Location</h2>
+                   <p>
+                    C/O SHIVPAL SINGH, V.P.O. JERTHI , SIKAR, Rajasthan, India - 332031
+                   </p>
+                </div>
+            
+            </div>
+            <div class="contact-images">
+                <img  src="AS.png" alt="Company Office">
+                <img src="AK.jfif" alt="Our Team">
+                <img src="AZZ.png" alt="Customer Service">
+                <img style="margin-top: 10px;object-fit: contain;" src="QW.jfif" alt="Our Technology">
+            </div>
+        </section>
+    </div>
+</body>
+</html>

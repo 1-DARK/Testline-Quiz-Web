@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testline</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="AZZ.png" type="image/x-icon">
+</head>
+<style>
+  /* Reset default styles */
+  * {
+      border: 0;
+      box-sizing: border-box;
+  }
+
+  /* Footer Styles */
+  .footer {
+     
+      color: rgb(139, 131, 131);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+  }
+
+  .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 1200px;
+      gap: 40px; /* Increased gap for desktop */
+  }
+
+  .footer-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .footer-section h3 {
+      font-size: 20px; /* Larger font size for desktop */
+      margin-bottom: 15px; /* Added for better spacing */
+  }
+
+  .footer-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* Use gap for spacing */
+  }
+
+  .footer-section ul li a {
+      color:rgb(139, 131, 131);;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 16px; /* Larger font size for desktop */
+  }
+
+  .footer-section ul li a:hover {
+      color: #3498db;
+  }
+
+  .footer-section h3:hover{
+    color: #3498db;
+  }
+  .social-icons {
+      display: flex;
+      gap: 20px; /* Increased gap for desktop */
+  }
+
+  .social-icons a {
+      color: rgb(139, 131, 131);
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+
+  .social-icons a:hover {
+      color: #3498db;
+  }
+  .footer-bottom :hover{
+    color: #3498db;
+  }
+
+  .icon {
+      width: 28px; /* Larger icons for desktop */
+      height: 28px;
+  }
+
+  .footer-bottom {
+      text-align: center;
+      width: 100%;
+   
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0; /* Added padding for better spacing */
+  }
+
+  .footer-bottom p {
+      font-size: 18px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+      .footer-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 20px; /* Reduced gap for mobile */
+      }
+
+      .footer-section {
+          align-items: center;
+      }
+
+      .footer-section h3 {
+          font-size: 20px; /* Smaller font size for mobile */
+      }
+
+      .footer-section ul li a {
+          font-size: 18px; /* Smaller font size for mobile */
+      }
+
+      .social-icons {
+          gap: 15px; /* Reduced gap for mobile */
+      }
+
+      .icon {
+          width: 24px; /* Smaller icons for mobile */
+          height: 24px;
+      }
+  }
+</style>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo">Testline</div>
+            <div class="streak-icons">
+                <div class="streak-item">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path>
+                    </svg>
+                    <span>3</span>
+                </div>
+                <div class="streak-item">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                    </svg>
+                    <span>5</span>
+                </div>
+                <div class="streak-item">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>100</span>
+                </div>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" s troke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+            </button>
+
+
+            
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="image-wrapper">
+            <img width="100%" id="responsive-image" src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba" alt="Scenic landscape">
+        </div>
+       
+    </div>
+   
+ <div>
+    <h2 class=" text-center mt-8 mb-5  free-fall">My Daily Target</h2>
+ </div>
+    
+ <div class="container" style="display: flex;  width: 100%; align-items: center; justify-content: center;">
+    <div  class="grid AX" style="display: grid; width: 800px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 20px; padding: 8px; ">
+    
+      <div 
+        style="font-family: 'M PLUS 2 Variable', sans-serif; grid-column: span 1; grid-row: span 2; background-color: rgba(255, 182, 193, 0.5); border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1);"
+      >
+      <h4 class="text-2xl text-center">
+        Human Physiology(15)
+      </h4>
+      <h6 class="text-xl text-center" id="QQ">
+        Respiration and Gas Exchange
+      </h6>
+      <p class="mt-3" id="AAA">
+        10 Min Test Practice
+      </p>
+
+      <progress class="custom-progress" id="AAA" value="35" max="100"></progress>
+
+
+   <div class="text-center button-container" >
+    <a href="Quiz.html">
+      
+    <button  class=  "start-button bg-white text-black w-60 h-10 rounded-4xl text-center mt-2">
+      Start Test
+    </button>
+    </a>
+</div>
+      </div>
+    
+      <div 
+        style="font-family: 'M PLUS 2 Variable', sans-serif; grid-column: span 1; grid-row: span 2; background-color: rgba(173, 255, 47, 0.5); border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1);"
+      >
+      
+      <h4  class="text-2xl text-center">
+        Human Physiology(15)
+      </h4>
+      <h6 class="text-xl text-center" id="QQ">
+        Respiration and Gas Exchange
+      </h6>
+      <p class="mt-3" id="AAA">
+        10 Min Test Practice
+      </p>
+      <progress class="custom-progress" id="AAA" value="35" max="100"></progress>
+
+
+
+   <div class="text-center button-container" >
+    <a href="Quiz.html">
+      
+    <button  class="start-button bg-white text-black w-60 h-10 rounded-4xl text-center mt-2">
+      Start Test
+    </button>
+    </a>
+</div>
+
+      </div>
+    
+
+      
+    </div>
+  </div>
+    
+
+  <div class="container" style=" margin-top:40px; display: flex; height: 100%; width: 100%; align-items: center; justify-content: center;">
+    <div class="grid" style="display: grid; height: 150px; width: 600px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 16px;">
+    
+      <div class="flex justify-center items-center">
+        <a href="Doc3.html">
+         <button type='button' class='w-50 h-13  bg-indigo-400 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-500  hover:bg-indigo-700'>
+         
+              Help Desk
+              </button>
+            </a>
+            </div>
+    
+      <div class="flex justify-center items-center">
+        <a href="Doc2.html">
+
+         <button type='button' class='w-50 h-13  bg-indigo-400 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-500  hover:bg-indigo-700'>
+        
+              My Testlines
+              </button>
+            </a>
+            </div>
+    
+    </div>
+  </div>
+<div class="flex justify-center items-center">
+  <a href="Doc2.html">
+   <button type='button' class='w-50 h-11  bg-indigo-500 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-500  hover:bg-indigo-700'>
+    <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
+      <path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 24 13 L 24 24 L 13 24 L 13 26 L 24 26 L 24 37 L 26 37 L 26 26 L 37 26 L 37 24 L 26 24 L 26 13 L 24 13 z"></path>
+      </svg>
+        Create Custom Test
+        </button>
+      </a>
+      </div>
+      
+    
+    </div>
+  </div>
+  
+  <div>
+    <h2 class=" text-center mt-8 mb-5 free-fall">
+        Test Series
+    </h2>
+  </div>
+
+<div id="fflex" class="fflex">
+  <div class="grid">
+      <div class="grid-item biology">
+          <h2>Biology</h2>
+          <h4>Topic Cover:</h4>
+          <p>Cell City, Scramble, DNA Detective, Evolution Enigma, Microbial Maze ,White Blood cells</p>
+          <div class="button-container">
+              <a href="Quiz.html">
+                  <button class="start-button">Start Test</button>
+              </a>
+          </div>
+      </div>
+      
+      <div class="grid-item physics">
+          <h2>Physics</h2>
+          <h4>Topic Cover:</h4>
+          <p>Optics, Electromagnetism, Relativity, Thermodynamics, Acoustics</p>
+          <div class="button-container">
+              <a href="Quiz.html">
+                  <button class="start-button">Start Test</button>
+              </a>
+          </div>
+      </div>
+      
+      <div class="grid-item chemistry">
+          <h2>Chemistry</h2>
+          <h4>Topic Cover:</h4>
+          <p>Acids and Bases, Atomic Structure, Chemical bonds, Chemical reactions</p>
+          <div class="button-container">
+              <a href="Quiz.html">
+                  <button class="start-button">Start Test</button>
+              </a>
+          </div>
+      </div>
+      
+      <div class="grid-item biology-pyq">
+          <h2>Biology PYQs</h2>
+          <h4>Topic Cover:</h4>
+          <p>Cell City, Scramble, DNA Detective, Evolution Enigma</p>
+          <div class="button-container">
+              <a href="Quiz.html">
+                  <button class="start-button">Start Test</button>
+              </a>
+          </div>
+      </div>
+      
+      <div class="grid-item physics-pyq">
+          <h2>Physics PYQs</h2>
+          <h4>Topic Cover:</h4>
+          <p>Optics, Relativity, Electromagnetism, Thermodynamics</p>
+          <div class="button-container">
+              <a href="Quiz.html">
+                  <button class="start-button">Start Test</button>
+              </a>
+          </div>
+      </div>
+      
+      <div class="grid-item chemistry-pyq">
+          <h2>Chemistry PYQs</h2>
+          <h4>Topic Cover:</h4>
+          <p>Acids and Bases, Atomic Structure, Chemical bonds</p>
+          <div class="button-container">
+              <a href="Quiz.html">
+                  <button class="start-button">Start Test</button>
+              </a>
+          </div>
+      </div>
+  </div>
+</div>
+
+ <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+               <h3>
+
+               </h3>
+                <ul>
+                    <li><a href="Doc1.html">Home</a></li>
+                    <li><a href="Doc2.html">Offer</a></li>
+                    <li><a href="Doc3.html">Contact</a></li>
+                    <li><a href="Doc4.html">About</a></li>
+                </ul>
+            </div>
+            <div  class="footer-section">
+                <h3 >Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <svg class="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com" target="_blank">
+                        <svg class="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+                    <a href="http://instagram.com/testlineapp/" target="_blank">
+                        <svg class="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <div class="footer-bottom">
+    <p>&copy; <span id="current-year"></span> Testline. All rights reserved.</p>
+</div>
+    </footer>
+   
+   
+   
+   
+
+
+
+
+  
+
+
+      
+    <script src="script.js">
+    
+    </script>
+</body>
+</html>

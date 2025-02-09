@@ -1,0 +1,219 @@
+
+      .image-wrapper  img{
+          object-fit: cover;
+            height: 350px;
+            width: 100%;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: #333;
+        }
+        .streak-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        .streak-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a202c;
+            color: white;
+        }
+        body.dark-mode .navbar {
+            background-color: #2d3748;
+        }
+        body.dark-mode .logo {
+            color: white;
+        }
+        body.dark-mode .theme-toggle {
+            background-color: #4a5568;
+        }
+   
+      
+        .ICO svg{
+            margin-top: 10px;
+        }
+     
+#QQ{
+    margin-top: 20px;
+}
+#AAA{
+    margin-left: 45px;
+}
+
+    
+
+    
+  
+
+    .fflex {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .grid {
+        display: grid;
+        height: 400px;
+        width: 1000px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .grid-item {
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+    .biology { background-color: rgba(173, 255, 47, 0.5); }
+    .physics { background-color: rgba(173, 255, 47, 0.5); }
+    .chemistry { background-color:rgba(173, 255, 47, 0.5);}
+    .biology-pyq, .physics-pyq, .chemistry-pyq { background-color: rgba(173, 255, 47, 0.5);; }
+    
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    h4 {
+        font-size: 1.2rem;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+    p {
+        margin: 5px 0;
+    }
+    .button-container {
+        text-align: center;
+        margin-top: auto;
+    }
+    .start-button {
+        background-color: white;
+        color: black;
+        width: 60%;
+        height: 40px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    
+    @media (max-width: 700px) {
+        .grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            height: auto;
+            width: 90%;
+        }
+        .grid-item {
+            height: 300px;
+        }
+        .AX{
+            height: 250px;
+        }
+       
+    }
+
+    
+    @media (min-width: 700px) {
+     
+        .footer{
+            margin-top: 210px;
+        }
+        .AX{
+ height: 230px;
+        }
+    }
+
+
+    .custom-progress {
+        /* Default styles */
+        width: 40; /* Adjust width as needed */
+        height: 20px; /* Adjust height as needed */
+        appearance: none; /* Remove default styling */
+        -webkit-appearance: none; /* Remove default styling for WebKit browsers */
+        border: 2px solid rgb(234, 224, 224); /* Add border */
+        border-radius: 20px; /* Add border-radius (rounded corners) */
+        overflow: hidden; /* Ensure the border-radius clips the inner bar */
+    }
+    
+    /* Style the progress bar's inner filled part */
+    .custom-progress::-webkit-progress-value {
+        background-color: rgb(18, 18, 236); /* Green color for the filled part */
+        border-radius: 20px; /* Match the border-radius of the container */
+    }
+    
+    .custom-progress::-moz-progress-bar {
+        background-color: #ffffff; /* Green color for the filled part */
+        border-radius: 20px; /* Match the border-radius of the container */
+    }
+    
+
+
+    @keyframes freeFall {
+        0% {
+            transform: translateY(-100vh);
+            font-size: small;
+        }
+        60% {
+            transform: translateY(0);
+            font-size:x-small;
+        }
+        70% {
+            transform: translateY(-20px);
+        }
+        80% {
+            transform: translateY(0);
+        }
+        90% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+            font-size: large;
+        }
+    }
+
+    /* Apply the animation to the text */
+    .free-fall {
+        animation: freeFall 1.5s ease-out;
+    }
+
+
+
+   

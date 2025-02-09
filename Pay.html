@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="shortcut icon" href="AZA.png" type="image/x-icon">
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-header {
+ 
+background-color: black;
+color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.card-header p {
+  margin: 10px 0 0;
+  font-size: 14px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.payment-methods label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.payment-methods input[type="radio"] {
+  margin-right: 8px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.upi-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.upi-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.upi-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.paytm-icon {
+  fill: #00baf2;
+}
+
+.gpay-icon {
+  fill: #4285f4;
+}
+
+.phonepe-icon {
+  fill: #5f259f;
+}
+
+.amount {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.currency {
+  font-size: 18px;
+  
+  margin-top: 50px;
+}
+
+.pay-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pay-button:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+
+</style>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Payment Gateway</h2>
+                <p>Pay ₹600 securely</p>
+            </div>
+            <div class="card-content">
+                <form id="paymentForm">
+                    <div class="payment-methods">
+                        <label>
+                            <input type="radio" name="paymentMethod" value="card" checked>
+                            <span>Card</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="paymentMethod" value="upi">
+                            <span>UPI</span>
+                        </label>
+                    </div>
+
+                    <div id="cardFields">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardExpiry">Expiry Date</label>
+                                <input type="text" id="cardExpiry" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardCVV">CVV</label>
+                                <input type="text" id="cardCVV" placeholder="123" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="upiFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="upiId">UPI ID</label>
+                            <input type="text" id="upiId" placeholder="yourname@upi">
+                        </div>
+                     
+                        
+                    </div>
+
+                    <div class="amount">
+                        <span class="currency">₹</span>
+                        <span class="value">600</span>
+                    </div>
+
+                    <button type="submit" class="pay-button">Pay Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("paymentForm")
+  const paymentMethods = document.getElementsByName("paymentMethod")
+  const cardFields = document.getElementById("cardFields")
+  const upiFields = document.getElementById("upiFields")
+  const upiOptions = document.querySelectorAll(".upi-option")
+
+  // Toggle between card and UPI fields
+  paymentMethods.forEach((method) => {
+    method.addEventListener("change", function () {
+      if (this.value === "card") {
+        cardFields.style.display = "block"
+        upiFields.style.display = "none"
+      } else {
+        cardFields.style.display = "none"
+        upiFields.style.display = "block"
+      }
+    })
+  })
+
+  // Highlight selected UPI option
+  upiOptions.forEach((option) => {
+    option.addEventListener("click", function () {
+      upiOptions.forEach((opt) => opt.classList.remove("selected"))
+      this.classList.add("selected")
+    })
+  })
+
+  // Form submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    // Basic form validation
+    let isValid = true
+    const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked').value
+
+    if (selectedMethod === "card") {
+      const cardNumber = document.getElementById("cardNumber").value
+      const cardExpiry = document.getElementById("cardExpiry").value
+      const cardCVV = document.getElementById("cardCVV").value
+
+      if (!cardNumber || !cardExpiry || !cardCVV) {
+        isValid = false
+        alert("Please fill in all card details.")
+      }
+    } else {
+      const upiId = document.getElementById("upiId").value
+      if (!upiId) {
+        isValid = false
+        alert("Please enter your UPI ID.")
+      }
+    }
+
+    if (isValid) {
+      // Here you would typically send the payment data to a server
+      // For this example, we'll just show an alert
+      alert("Payment of ₹600 processed successfully!")
+      form.reset()
+    }
+  })
+})
+
+
+    </script>
+</body>
+</html>
+
