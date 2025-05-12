@@ -71,15 +71,7 @@ testline/
 - **Tailwind CSS:** Customize your styles by modifying `tailwind.config.js` and `style.css`.
 - **Dynamic Data:** Modify `data.json` and observe how changes are reflected via JavaScript in the project.
 
-## Screenshots
 
-![Screenshot 1](static/images/1.png)
-![Screenshot 2](static/images/2.png)
-![Screenshot 3](static/images/3.png)
-![Screenshot 4](static/images/4.png)
-![Screenshot 5](static/images/5.png)
-![Screenshot 6](static/images/6.png)
-![Screenshot 7](static/images/7.png)
 
 ## Contributing
 
